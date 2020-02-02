@@ -32,9 +32,18 @@ public class ClienteListaController extends HttpServlet
          *ZONA DE DESPLIEGUE DE DATOS
          *-------------------------------------------------------------------------
          */
+        double saldoTotal = 0.0;
         List<Cliente> clientes = clienteService.listaClientes();
         
+        // Contamos el saldo total y cantidad
+        for(Cliente c : clientes)
+        {
+            saldoTotal += c.getSaldo();
+        }
+        
         request.setAttribute("lista_clientes", clientes);
+        request.setAttribute("saldo_total", saldoTotal);
+        request.setAttribute("total_clientes", clientes.size());
         request.getRequestDispatcher("/WEB-INF/cliente/lista_cliente.jsp").forward(request, response);
     }
 }
