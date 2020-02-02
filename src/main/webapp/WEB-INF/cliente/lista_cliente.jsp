@@ -85,6 +85,7 @@
             </div>
         </section>
         
+        <jsp:include page="insertar_cliente.jsp" />                        
         <jsp:include page="../include/footer.jsp" />
             
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
